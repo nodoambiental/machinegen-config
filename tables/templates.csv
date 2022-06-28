@@ -1,4 +1,5 @@
-Name     ,System ,Source                            ,Target                  ,Description
-nebula   ,guest  ,image/nebula-config.yaml.template ,/etc/nebula/config.yaml ,Nebula config file for non-lighthouse nodes
-userdata ,host   ,image/user-data.yaml.template     ,image/user-data.yaml    ,Cloud-init configuration file
-metadata ,host   ,image/metadata.yaml.template      ,image/metadata.yaml     ,Cloud-init machine configuration file
+Name      ,System ,Source                                             ,Target                                ,Description
+nebula    ,guest  ,.machinegen/templates/nebula-config.yaml.template  ,/etc/nebula/config.yaml               ,Nebula config file for non-lighthouse nodes
+userdata  ,host   ,.machinegen/templates/user-data.yaml.template      ,.machinegen/cloud-init/user-data.yaml ,Cloud-init configuration file
+metadata  ,host   ,.machinegen/templates/metadata.yaml.template       ,.machinegen/cloud-init/metadata.yaml  ,Cloud-init machine configuration file
+terraform ,host   ,.machinegen/templates/terraform-config.tf.template ,.machinegen/terraform/libvirt.tf      ,Terraform libvirt configuration file

@@ -1,0 +1,59 @@
+# TODO add disk definitions
+# TODO Fix networking shit and get the IP properly and stuff
+# TODO Add a way to setup the variables to replace with in the generator
+# TODO Add a way to load software, files and shit to a file readable by the makefile to include into the cloud-init image 
+
+
+# Defining VM Volume
+resource "libvirt_volume" "@@@VOLUME_NAME@@@-qcow2" {
+  name   = "@@@VOLUME_NAME@@.qcow2"
+  pool   = "@@@STORAGE_POOL@@" # List storage pools using virsh pool-list
+  source = "../image/os.img"
+  format = "qcow2"
+}
+
+resource "libvirt_volume" "ubuntu22-seed" {
+  name   = "seed.img"
+  pool   = "default" # List storage pools using virsh pool-list
+  source = "../image/seed.img"
+  format = "raw"
+}
+
+# Define KVM domain to create
+resource "libvirt_domain" "@@@VOLUME_NAME@@@" {
+  name   = "@@@VOLUME_NAME@@@"
+  memory = "@@@VOLUME_MEMORY@@@"
+  vcpu   = @@@VOLUME_CPU@@@
+
+  network_interface {
+    network_name = "@@@VOLUME_NETWORK@@@" # List networks with virsh net-list
+  }
+
+  disk {
+    volume_id = libvirt_volume.@@@VOLUME_NAME@@@-qcow2.id
+    # include size with @@@VOLUME_SIZE@@@
+  }
+
+  disk {
+    volume_id = libvirt_volume.@@@VOLUME_NAME@@@-seed.id
+  }
+
+  console {
+    type        = "pty"
+    target_type = "serial"
+    target_port = "0"
+  }
+
+  graphics {
+    type        = "spice"
+    listen_type = "address"
+    autoport    = true
+  }
+}
+
+# FIXME this shit does not work
+# Output Server IP
+output "ip" {
+    # Include IP with @@@VOLUME_IP@@@
+  value = libvirt_domain.ubuntu22.network_interface.0.addresses.0
+}

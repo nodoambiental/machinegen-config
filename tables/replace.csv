@@ -16,3 +16,9 @@ usergroups         ,userdata ,false     ,false  ,user          ,List of groups t
 userpassword       ,userdata ,false     ,false  ,user          ,User password
 usersshkey         ,userdata ,false     ,false  ,user          ,User public key to login
 insert             ,userdata ,false     ,true   ,root          ,Insert arbitrary configuration data for cloud-init
+volume_name        ,terraform ,true     ,true  ,machine        ,Volume name to create
+volume_size        ,terraform ,true     ,true  ,machine        ,Volume disk size to create
+volume_memory      ,terraform ,true     ,true  ,machine        ,Volume amount of memory to create
+volume_cpu        ,terraform ,true     ,true  ,machine        ,Volume number of vcpu to create
+volume_ip         ,terraform ,true     ,true  ,machine        ,IP to assign to the volume NIC
+volume_network    ,terraform ,true     ,true  ,machine        ,Name of the libvirt network to attach the volume into
