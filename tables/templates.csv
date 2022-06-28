@@ -1,5 +1,5 @@
-Name      ,System ,Source                                             ,Target                                ,Description
-nebula    ,guest  ,.machinegen/templates/nebula-config.yaml.template  ,/etc/nebula/config.yaml               ,Nebula config file for non-lighthouse nodes
-userdata  ,host   ,.machinegen/templates/user-data.yaml.template      ,.machinegen/cloud-init/user-data.yaml ,Cloud-init configuration file
-metadata  ,host   ,.machinegen/templates/metadata.yaml.template       ,.machinegen/cloud-init/metadata.yaml  ,Cloud-init machine configuration file
-terraform ,host   ,.machinegen/templates/terraform-config.tf.template ,.machinegen/terraform/libvirt.tf      ,Terraform libvirt configuration file
+name      ,system ,source                                             ,target                                ,description
+nebula    ,Guest  ,.machinegen/templates/nebula-config.yaml.template  ,/etc/nebula/config.yaml               ,Nebula config file for non-lighthouse nodes
+userdata  ,Host   ,.machinegen/templates/user-data.yaml.template      ,.machinegen/cloud-init/user-data.yaml ,Cloud-init configuration file
+metadata  ,Host   ,.machinegen/templates/metadata.yaml.template       ,.machinegen/cloud-init/metadata.yaml  ,Cloud-init machine configuration file
+terraform ,Host   ,.machinegen/templates/terraform-config.tf.template ,.machinegen/terraform/libvirt.tf      ,Terraform libvirt configuration file
