@@ -20,7 +20,7 @@ This is a file that defines the variables that should be replaced in the templat
 
 It is separated into 6 columns:
 
-- String: Defines the string to be replaced. Strings defined here should be lowercase and have spaces replaced by `_` will be found in the template files as uppercase and surrounded by three at signs. This means that a string that says potato will be found and replaced in the template file as @@@POTATO@@@. This is done to avoid misreplacements if the files grow complex.
+- String: Defines the string to be replaced. Strings defined here should be lowercase and have spaces replaced by `_` will be found in the template files as uppercase and surrounded by three at signs. This means that a string that says potato_is_love will be found and replaced in the template file as `@@@POTATO_IS_LOVE@@@`. This is done to avoid misreplacements if the files grow complex.
 - Template: Defines the target file for the replacement. This value corresponds to values found on the `Name` column of the `templates.csv` file.
 - Mandatory: Defines if replacing this string is required
 - Unique: Defines if there can be more than one replacement for this string
